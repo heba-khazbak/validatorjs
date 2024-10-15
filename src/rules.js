@@ -414,11 +414,16 @@ var rules = {
   },
 
   after: function (val, req) {
-    var val1 = this.validator.input[req];
+    var val1 = req;
     var val2 = val;
 
     if (!isValidDate(val1)) {
-      return false;
+      // if req is not a date value, check if attribute with valid date exists
+      val1 = this.validator.input[req];
+
+      if (!isValidDate(val1)) {
+        return false;
+      }
     }
     if (!isValidDate(val2)) {
       return false;
@@ -432,11 +437,15 @@ var rules = {
   },
 
   after_or_equal: function (val, req) {
-    var val1 = this.validator.input[req];
+    var val1 = req;
     var val2 = val;
 
     if (!isValidDate(val1)) {
-      return false;
+      val1 = this.validator.input[req];
+
+      if (!isValidDate(val1)) {
+        return false;
+      }
     }
     if (!isValidDate(val2)) {
       return false;
@@ -450,11 +459,16 @@ var rules = {
   },
 
   before: function (val, req) {
-    var val1 = this.validator.input[req];
+    var val1 = req;
     var val2 = val;
 
     if (!isValidDate(val1)) {
-      return false;
+      // if req is not a date value, check if attribute with valid date exists
+      val1 = this.validator.input[req];
+
+      if (!isValidDate(val1)) {
+        return false;
+      }
     }
     if (!isValidDate(val2)) {
       return false;
@@ -468,11 +482,16 @@ var rules = {
   },
 
   before_or_equal: function (val, req) {
-    var val1 = this.validator.input[req];
+    var val1 = req;
     var val2 = val;
 
     if (!isValidDate(val1)) {
-      return false;
+      // if req is not a date value, check if attribute with valid date exists
+      val1 = this.validator.input[req];
+
+      if (!isValidDate(val1)) {
+        return false;
+      }
     }
     if (!isValidDate(val2)) {
       return false;
